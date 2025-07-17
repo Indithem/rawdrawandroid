@@ -18,7 +18,7 @@ SRC?=test.c
 #We've tested it with android version 22, 24, 28, 29, 30, 32 and 34.
 #You can target something like Android 28, but if you set ANDROIDVERSION to say 22, then
 #Your app should (though not necessarily) support all the way back to Android 22.
-ANDROIDVERSION?=30
+ANDROIDVERSION?=34
 ANDROIDTARGET?=$(ANDROIDVERSION)
 CFLAGS?=-ffunction-sections -Os -fdata-sections -Wall -fvisibility=hidden
 LDFLAGS?=-Wl,--gc-sections -Wl,-Map=output.map -s
@@ -109,10 +109,10 @@ CC_x86_64=$(NDK)/toolchains/llvm/prebuilt/$(OS_NAME)/bin/x86_64-linux-android$(A
 AAPT:=$(BUILD_TOOLS)/aapt
 
 # Which binaries to build? Just comment/uncomment these lines:
-TARGETS += makecapk/lib/arm64-v8a/lib$(APPNAME).so
+#TARGETS += makecapk/lib/arm64-v8a/lib$(APPNAME).so
 #TARGETS += makecapk/lib/armeabi-v7a/lib$(APPNAME).so
 #TARGETS += makecapk/lib/x86/lib$(APPNAME).so
-#TARGETS += makecapk/lib/x86_64/lib$(APPNAME).so
+TARGETS += makecapk/lib/x86_64/lib$(APPNAME).so
 
 CFLAGS_ARM64:=-m64
 CFLAGS_ARM32:=-mfloat-abi=softfp -m32
